@@ -3,7 +3,7 @@
 ; === VERSION ===
 CurrentVersion := "1.0"
 VersionURL := "https://gist.githubusercontent.com/munro55/f59c320f55517a9fb9d50fdf8da1e8f5/raw/421df3421f75a068a795b79451668427776c024c/gistfile1.txt"
-DownloadURL := "https://gist.github.com/munro55/f59c320f55517a9fb9d50fdf8da1e8f5"
+DownloadURL := "https://raw.githubusercontent.com/munro55/Roblox-rejoin/refs/heads/main/rejoin.ahk"
 
 ; === CONFIGURATION ===
 RejoinDelay := 5000
@@ -89,7 +89,20 @@ CheckForUpdates() {
 
 OpenDownload(*) {
     global DownloadURL
-    Run(DownloadURL)
+    UpdateBtn.Text := "Downloading..."
+    UpdateBtn.Opt("Disabled")
+    try {
+        TempFile := A_Temp . "\rejoin_update.ahk"
+        Download(DownloadURL, TempFile)
+        FileCopy(TempFile, A_ScriptFullPath, 1)
+        FileDelete(TempFile)
+        MsgBox("Update downloaded! The script will now restart.", "Updated!", 64)
+        Reload()
+    } catch {
+        MsgBox("Update failed! Check your internet connection.", "Error", 48)
+        UpdateBtn.Text := "🔔 Update Available!"
+        UpdateBtn.Opt("-Disabled")
+    }
 }
 
 SaveLink(*) {
