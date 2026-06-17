@@ -3,7 +3,7 @@
 
 ; === VERSION ===
 CurrentVersion := "1.1"
-VersionURL := "https://gist.githubusercontent.com/munro55/f59c320f55517a9fb9d50fdf8da1e8f5/raw/421df3421f75a068a795b79451668427776c024c/gistfile1.txt"
+VersionURL := "https://gist.githubusercontent.com/munro55/f59c320f55517a9fb9d50fdf8da1e8f5/raw/gistfile1.txt"
 DownloadURL := "https://raw.githubusercontent.com/munro55/Roblox-rejoin/refs/heads/main/rejoin.ahk"
 GdipDownloadURL := "https://raw.githubusercontent.com/munro55/Roblox-rejoin/refs/heads/main/Gdip_Minimal.ahk"
 
